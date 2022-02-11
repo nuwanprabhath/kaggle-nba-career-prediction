@@ -1,7 +1,15 @@
 Kaggle-NBA-Career-Prediction
 ==============================
 
-A short description of the project.
+Kaggle competition of NBA career prediction
+
+Setting up the environment
+------------
+1. Please put test.csv and train.csv inside /data/raw from the Kaggle competition 
+2. Install dependencies in the requirements.txt. You can use the command `pip install -r requirements.txt`
+3. Activate your virtual environment (if you have one). For pipenv you can use `pipenv shell`
+4. Run Jupyter notebook using the root project directory `jupyter notebook --notebook-dir=<directory_name>`
+
 
 Project Organization
 ------------
