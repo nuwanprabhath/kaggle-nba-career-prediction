@@ -2,6 +2,9 @@ import numpy as np
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler # To normalise columns
 from sklearn.model_selection import train_test_split
+from sklearn.feature_selection import SequentialFeatureSelector # For feature selection
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.datasets import load_iris
 
 def split_and_normalize(train_file, processed_folder):
     """Split train data into multiple files with stratify parameter as yes"""
@@ -83,6 +86,27 @@ def load_kaggle_train_and_test_data(train_file, test_file):
     print("X_test shape: {}".format(test_set.shape))   
     
     return train_set, target_set, test_set
+
+
+def sequential_feature_selection(path, num_features):
+    """Select features based on the given train test and return selected features
+    path: Path with the train features and labels
+    num_features: Number of features to select
+    """
+    train_df = pd.read_csv(path)
+    train_set = train_df.loc[:, 'GP':'TOV']
+
+    scaler = MinMaxScaler() # Min max scaler
+    train_norm = scaler.fit_transform(train_set) # Scaling train set
+    X = pd.DataFrame(np.squeeze(train_norm), columns=train_set.columns) # Converting numpy array result to pandas dataframe
+    y = train_df.loc[:, 'TARGET_5Yrs'] # Selecting TARGET_5Yrs as the target
+
+    knn = KNeighborsClassifier(n_neighbors=3)
+    sfs = SequentialFeatureSelector(knn, n_features_to_select=num_features)
+    sfs.fit(X, y)
+    features = sfs.get_feature_names_out()
+    print(features)
+    return features.tolist() # Converting numpy array to a normal array
 
 
 
