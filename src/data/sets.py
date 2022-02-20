@@ -64,7 +64,6 @@ def split_sets_by_time(df, target_col, test_ratio=0.2):
 
     return X_train, y_train, X_val, y_val, X_test, y_test
 
-#
 def save_sets(X_train=None, y_train=None, X_val=None, y_val=None, X_test=None, y_test=None, path='../data/processed/'):
     """Save the different sets locally
 
@@ -138,8 +137,6 @@ def load_sets(path='../data/processed/', val=False):
     y_test  = np.load(f'{path}y_test.npy' ) if os.path.isfile(f'{path}y_test.npy')  else None
     
     return X_train, y_train, X_val, y_val, X_test, y_test
-
-# Source: AdvDSI-Lab3-Exercise1-Solutions.ipynb
 
 def pop_target(df, target_col, to_numpy=False):
     """Extract target variable from dataframe and convert to nympy arrays if required
