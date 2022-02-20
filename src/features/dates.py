@@ -1,6 +1,3 @@
-# A number of date manipulation functions 
-# Author: Anthony So
-
 def convert_to_date(df, cols:list):
     """Convert specified columns from a Pandas dataframe into datetime
 

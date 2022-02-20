@@ -26,9 +26,6 @@ def subset_x_y(target, features, start_index:int, end_index:int):
     
     return features[start_index:end_index], target[start_index:end_index]
 
-
-# Author: Anthony So
-
 def split_sets_by_time(df, target_col, test_ratio=0.2):
     """Split sets by indexes for an ordered dataframe
 
@@ -66,8 +63,6 @@ def split_sets_by_time(df, target_col, test_ratio=0.2):
     X_test, y_test   = subset_x_y(target=target, features=df_copy, start_index=-cutoff, end_index=len(target))
 
     return X_train, y_train, X_val, y_val, X_test, y_test
-
-# Author: Anthony So
 
 def save_sets(X_train=None, y_train=None, X_val=None, y_val=None, X_test=None, y_test=None, path='../data/processed/'):
     """Save the different sets locally
@@ -108,8 +103,6 @@ def save_sets(X_train=None, y_train=None, X_val=None, y_val=None, X_test=None, y
       np.save(f'{path}y_test',  y_test)
 
 
-# Author: Anthony So
-
 def load_sets(path='../data/processed/', val=False):
     """Load the different locally save sets
 
@@ -144,9 +137,6 @@ def load_sets(path='../data/processed/', val=False):
     y_test  = np.load(f'{path}y_test.npy' ) if os.path.isfile(f'{path}y_test.npy')  else None
     
     return X_train, y_train, X_val, y_val, X_test, y_test
-
-# Source: AdvDSI-Lab3-Exercise1-Solutions.ipynb
-# Author: Anthony So
 
 def pop_target(df, target_col, to_numpy=False):
     """Extract target variable from dataframe and convert to nympy arrays if required
