@@ -91,3 +91,6 @@ target/
 
 # environment folder
 kaggle/
+notebooks/williams_sean-week3_xgboost_scratchpad.ipynb
+notebooks/williams_sean-week3_LR_scratchpad.ipynb
+notebooks/williams_sean-week3_data_scratchpad.ipynb
