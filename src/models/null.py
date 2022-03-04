@@ -51,3 +51,8 @@ class NullModel:
     def fit_predict(self, y):
         self.fit(y)
         return self.predict(self.y)
+    
+    
+
+
+    
