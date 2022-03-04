@@ -144,4 +144,69 @@ def plot_roc_auc(model,X_train, y_train, X_val, y_val):
         
         plt.show()
     
-    return    
+    return
+
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Correlation between X and y
+def corrs_graph(df_in):
+    corr_matrix = df_in.corr()
+    fig, ax = plt.subplots(figsize=(16,12))
+    ax = sns.heatmap(corr_matrix, annot=True, linewidths=0.5, fmt=".2f", cmap="Blues")
+    plt.show()
+    
+    
+def corrs_X_y(df_in, y):    
+    # Find correlations with the Target and sort
+    correlations = df_in.corr()[y].sort_values()
+
+    # Display correlations with Target
+    print('Most Positive Correlations with Target:')
+    print(correlations.dropna().tail(10))
+
+    print()
+
+    print('Most Negative Correlations with Target:') 
+    print(correlations.dropna().head(10))
+    
+    
+    
+def collinear_col(df_in, n, cols_to_remove=[]):
+    # Set the threshold
+    threshold = n
+
+    # Empty dictionary to hold correlated variables
+    above_threshold_vars = {}
+
+    # Calculate all correlations in dataframe
+    correlations = df_in.corr()
+    correlations = correlations.sort_values('TARGET_5Yrs', ascending = False)
+
+    # For each column, record the variables that are above the threshold
+    for col in correlations:
+        above_threshold_vars[col] = list(correlations.index[correlations[col] > threshold])
+
+    # Track columns to remove and columns already examined
+    cols_to_remove = []
+    cols_seen = []
+    cols_to_remove_pair = []
+
+    # Iterate through columns and correlated columns
+    for key, value in above_threshold_vars.items():
+        # Keep track of columns already examined
+        cols_seen.append(key)
+        for x in value:
+            if x == key:
+                next
+            else:
+                # Only want to remove one in a pair
+                if x not in cols_seen:
+                    cols_to_remove.append(x)
+                    cols_to_remove_pair.append(key)
+
+    cols_to_remove = list(set(cols_to_remove))
+    print('Number of columns to remove: ', len(cols_to_remove))
+    
+    return cols_to_remove
