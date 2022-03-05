@@ -43,12 +43,28 @@ Within your local repository main folder, create sub-folder 'data', and two othe
     │   └── raw            <- The raw Train & Test raw datasets.
 </pre>
 
-Download Train and Test datasets from <a href="https://www.kaggle.com/c/uts-advdsi-nba-career-prediction/data">Kaggle</a> and store them in the local repository 'data\raw' folder.
+Download **Train** and **Test** datasets from <a href="https://www.kaggle.com/c/uts-advdsi-nba-career-prediction/data">Kaggle</a> and store them in the local repository 'data\raw' folder.
 
 
 Installing dependencies
 ------------
 
+This solution is using a pre-built Docker image that ensures the required libraries and their versions are ready to go - SKLearn, XGBoost, Hyperopt.
+
+Within the main repository folder - create a file called `Docker` (no extension) either via:
+1. IDE (VS Code, PyCharm, etc...) or 
+2. in SSH using <code>vi Dockerfile</code> and add the following content:
+
+<pre>
+FROM jupyter/scipy-notebook:0ce64578df46
+RUN conda install xgboost
+RUN conda install sklearn
+RUN conda install hyperopt
+ENV PYTHONPATH "${PYTHONPATH}:/home/jovyan/work"
+RUN echo "export PYTHONPATH=/home/jovyan/work" >> ~/.bashrc
+WORKDIR /home/jovyan/work`  
+</pre>
+   
 3. Install dependencies in the requirements.txt. You can use the command `pip install -r requirements.txt`
 4. Activate your virtual environment (if you have one). For pipenv you can use `pipenv shell`
 5. Install Hyperopt-sklearn (if required unless installed in step 2)
