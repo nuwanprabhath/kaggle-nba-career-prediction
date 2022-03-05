@@ -22,7 +22,7 @@ The main steps required for installing an executing this <b>Kaggle-NBA-Career-Pr
 4. Jupyter notebook to train models and run predictions
 
 
-<p>1. Setup the local Git repository
+Setup the local Git repository
 ------------
 
 To download all the necessary files and folders (apart from the datasets) run command <code>git clone</code>.
