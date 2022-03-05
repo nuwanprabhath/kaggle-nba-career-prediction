@@ -1,7 +1,6 @@
 Kaggle-NBA-Career-Prediction
 ==============================
 
-**Purpose**
 
 To predict if a rookie player will last at least 5 years in the league based on their stats. Model training for predicting the 5-Year Career Longevity for NBA Rookies is based on data where:
 
