@@ -27,6 +27,16 @@ The main steps required for installing an executing this <b>Kaggle-NBA-Career-Pr
 Setup the local Git repository
 ------------
 
+Create a new folder to store this repository, eg: ~/Projects/nba-career-predict:
+
+<pre>
+cd ~
+mkdir Projects
+cd Projects
+mkdir nba_career_predict
+cd nba_career_predict
+</pre>
+
 To download all the necessary files and folders (apart from the datasets) run command <code>git clone</code>.
 
 <pre>git clone https://github.com/nuwanprabhath/kaggle-nba-career-prediction.git</pre>
@@ -51,8 +61,8 @@ Installing dependencies
 
 This solution is using a pre-built Docker image that ensures the required libraries and their versions are ready to go - SKLearn, XGBoost, Hyperopt.
 
-Within the main repository folder - create a file called `Docker` (no extension) either via:
-1. IDE (VS Code, PyCharm, etc...) or 
+Within the main repository folder - create a file called `Dockerfile` (no extension) either via:
+1. IDE (<a href="https://code.visualstudio.com/">VS Code</a>, <a href="https://www.jetbrains.com/pycharm/">PyCharm</a>, etc...) or 
 2. in SSH using <code>vi Dockerfile</code> and add the following content:
 
 <pre>
@@ -65,20 +75,42 @@ RUN echo "export PYTHONPATH=/home/jovyan/work" >> ~/.bashrc
 WORKDIR /home/jovyan/work`  
 </pre>
    
-3. Install dependencies in the requirements.txt. You can use the command `pip install -r requirements.txt`
-4. Activate your virtual environment (if you have one). For pipenv you can use `pipenv shell`
-5. Install Hyperopt-sklearn (if required unless installed in step 2)
-   1. `git clone https://github.com/hyperopt/hyperopt-sklearn.git`
-   2. `cd hyperopt-sklearn`
-   3. `pip install -e .`
+Build the image from this Dockerfile, on the terminal command line enter:
 
-Execute Models
-6. Run Jupyter notebook using the root project directory `jupyter notebook --notebook-dir=<directory_name>`
+<code>docker build -t xgboost-notebook:latest .</code>
 
+
+Execute Notebooks
+---------------
+
+Run the built Docker image
+
+<pre>
+docker run  -dit --rm --name nba_caree_predict -p 8888:8888 -e JUPYTER_ENABLE_LAB=yes -v ~/Projects/nba_career_predict:/home/jovyan/work xgboost-notebook:latest 
+</pre>
+
+Locate the URL in the Docker log, and paste it into a browser to launch Jupyter Lab
+
+<pre>docker logs --tail 50 nba_caree_predict</pre>
+
+Execute the notebooks in the following order:
+
+1. Data prep
+2. Logistic Regression
+3. XGBoost
+
+Kaggle Submission
+---------------
+
+To determine the overall performance of the models, submit the prediction CSV outputs to <a href="https://www.kaggle.com/c/uts-advdsi-nba-career-prediction/submit">Kaggle</a> submissions. Prediction CSV output are saved in:
+
+<pre>
+    ├── data
+    │   ├── processed      <- Prediction CSV outputs for Kaggle.
+</pre>
 
 Project Organization
 ------------
-
     ├── LICENSE
     ├── Makefile           <- Makefile with commands like `make data` or `make train`
     ├── README.md          <- The top-level README for developers using this project.
