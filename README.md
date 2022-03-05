@@ -27,7 +27,7 @@ Setup the local Git repository
 
 To download all the necessary files and folders (apart from the datasets) run command <code>git clone</code>.
 
-<div class="highlight highlight-source-shell"><pre>git clone https://github.com/nuwanprabhath/kaggle-nba-career-prediction.git</pre></div>
+<code>git clone https://github.com/nuwanprabhath/kaggle-nba-career-prediction.git</code>
 
 
 
