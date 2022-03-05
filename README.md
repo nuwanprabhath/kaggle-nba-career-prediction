@@ -6,7 +6,9 @@ To predict if a rookie player will last at least 5 years in the league based on 
 - y = 0 if career years played < 5
 - y = 1 if career years played >= 5
 
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsWMVqCPDgjcRSjdHYcf5uILGqUREL9QU_QQ&usqp=CAU" width = "90%">
+<a href="https://www.kaggle.com/c/uts-advdsi-nba-career-prediction">
+   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsWMVqCPDgjcRSjdHYcf5uILGqUREL9QU_QQ&usqp=CAU" width = "90%">
+</a>   
 
 Installation process
 ------------
