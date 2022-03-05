@@ -7,6 +7,9 @@ To predict if a rookie player will last at least 5 years in the league based on 
 - y = 0 if career years played < 5
 - y = 1 if career years played >= 5
 
+<h3>What Does <code>git clone</code> Do?</h3>
+<div class="highlight highlight-source-shell"><pre>git clone https://github.com/github/training-kit.git</pre></div>
+
 Setting up the environment
 ------------
 1. Please put test.csv and train.csv inside /data/raw from the Kaggle competition 
