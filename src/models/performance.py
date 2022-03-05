@@ -149,3 +149,59 @@ def score_models(X_train = None, y_train = None, X_val = None, y_val = None, y_b
     display(df_model_scores)
     
     return
+
+def score_models2(X_train = None, y_train = None, X_val = None, y_val = None, X_test = None, y_test = None, y_base = None, includeBase = False, model = None):
+    
+    """Score Models and return results as a dataframe
+
+    Parameters
+    ----------
+    X_train : Numpy Array
+        X_train data
+    y_train : Numpy Array
+        Train target
+    X_val : Numpy Array
+         X_val data
+    y_val : Numpy Array
+        Val target
+    X_test : Numpy Array
+         X_test data
+    y_test : Numpy Array
+        Test target
+    includeBase: Boolean
+        Calculate and display baseline
+    model: model
+        Model passed into function
+
+    Returns
+    -------
+    """
+
+    import pandas as pd
+    import numpy as np
+
+    df_model_scores = pd.DataFrame()
+
+    if includeBase == True:
+        df_model_scores_base = score_null_model(y_train = y_train, y_base = y_base, set_name='Base')
+
+        df_model_scores = pd.concat([df_model_scores,df_model_scores_base],ignore_index = True, axis=0)
+
+    if X_train.size > 0:
+        df_model_scores_train = score_model(X_train, y_train, set_name='Train', model=model)
+
+        df_model_scores = pd.concat([df_model_scores,df_model_scores_train],ignore_index = True, axis=0)
+
+    if X_val.size > 0:
+        df_model_scores_val = score_model(X_val, y_val, set_name='Validate', model=model)
+
+        df_model_scores = pd.concat([df_model_scores,df_model_scores_val],ignore_index = True, axis=0)
+
+    if X_test.size > 0:
+        df_model_scores_test = score_model(X_test, y_test, set_name='Test', model=model)
+
+        df_model_scores = pd.concat([df_model_scores,df_model_scores_test],ignore_index = True, axis=0)
+
+    display(df_model_scores)
+
+    return

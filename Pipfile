@@ -10,6 +10,10 @@ scikit-learn = "==1.0.2"
 xgboost = "*"
 hyperopt = "*"
 matplotlib = "*"
+imblearn = "*"
+seaborn = "*"
+lightgbm = "*"
+featuretools = "*"
 
 [dev-packages]
 
