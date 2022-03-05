@@ -1,10 +1,12 @@
 Kaggle-NBA-Career-Prediction
 ==============================
 
-To predict if a rookie player will last at least 5 years in the league based on their stats. Model training for predicting the 5-Year Career Longevity for NBA Rookies is based on data where:
+To predict if a rookie player will last at least 5 years in the league based on their stats. Model training for predicting the 5-Year career longevity for NBA Rookies is based on data where:
 
 - y = 0 if career years played < 5
 - y = 1 if career years played >= 5
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsWMVqCPDgjcRSjdHYcf5uILGqUREL9QU_QQ&usqp=CAU" width = "90%">
 
 Installation process
 ------------
@@ -27,17 +29,34 @@ Setup the local Git repository
 
 To download all the necessary files and folders (apart from the datasets) run command <code>git clone</code>.
 
-<code>git clone https://github.com/nuwanprabhath/kaggle-nba-career-prediction.git</code>
+<pre>git clone https://github.com/nuwanprabhath/kaggle-nba-career-prediction.git</pre>
 
 
+Install Train/Test Data
+------------
 
-1. Please put test.csv and train.csv inside /data/raw from the Kaggle competition 
-2. Install dependencies in the requirements.txt. You can use the command `pip install -r requirements.txt`
-3. Activate your virtual environment (if you have one). For pipenv you can use `pipenv shell`
+Within your local repository main folder, create sub-folder 'data', and two other sub-folders within 'data':
+<pre>
+    |
+    ├── data
+    │   ├── processed      <- The final, canonical data sets for modeling.
+    │   └── raw            <- The raw Train & Test raw datasets.
+</pre>
+
+Download Train and Test datasets from <a href="https://www.kaggle.com/c/uts-advdsi-nba-career-prediction/data">Kaggle</a> and store them in the local repository 'data\raw' folder.
+
+
+Installing dependencies
+------------
+
+3. Install dependencies in the requirements.txt. You can use the command `pip install -r requirements.txt`
+4. Activate your virtual environment (if you have one). For pipenv you can use `pipenv shell`
 5. Install Hyperopt-sklearn (if required unless installed in step 2)
    1. `git clone https://github.com/hyperopt/hyperopt-sklearn.git`
    2. `cd hyperopt-sklearn`
    3. `pip install -e .`
+
+Execute Models
 6. Run Jupyter notebook using the root project directory `jupyter notebook --notebook-dir=<directory_name>`
 
 
@@ -51,7 +70,8 @@ Project Organization
     │   ├── external       <- Data from third party sources.
     │   ├── interim        <- Intermediate data that has been transformed.
     │   ├── processed      <- The final, canonical data sets for modeling.
-    │   └── raw            <- The original, immutable data dump.
+    │   └── raw            <- The original, immutable data dump. 
+    |                      <- Train & Test raw datasets.
     │
     ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
     │
