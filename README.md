@@ -1,17 +1,32 @@
 Kaggle-NBA-Career-Prediction
 ==============================
 
-
 To predict if a rookie player will last at least 5 years in the league based on their stats. Model training for predicting the 5-Year Career Longevity for NBA Rookies is based on data where:
 
 - y = 0 if career years played < 5
 - y = 1 if career years played >= 5
 
-<h3>What Does <code>git clone</code> Do?</h3>
+<h3>Installation process for executing<code>Kaggle-NBA-Career-Prediction</code></h3>
+
+The main steps required for installing an executing this <b>Kaggle-NBA-Career-Prediction</b> as follows:
+
+1. Setup the local Git repository
+2. Download the training and test datasets
+3. Build and/or install required dependencies:
+   - Docker container file 
+   - Docker image
+   - SKLearn
+   - XGBoost
+   - Hyperopt
+4. Jupyter notebook to train models and run predictions
+
 <div class="highlight highlight-source-shell"><pre>git clone https://github.com/github/training-kit.git</pre></div>
 
-Setting up the environment
+1. Setup the local Git repository
 ------------
+To download all the necessary files and folders (apart from the datasets) run command <code>git clone</code>.
+
+
 1. Please put test.csv and train.csv inside /data/raw from the Kaggle competition 
 2. Install dependencies in the requirements.txt. You can use the command `pip install -r requirements.txt`
 3. Activate your virtual environment (if you have one). For pipenv you can use `pipenv shell`
