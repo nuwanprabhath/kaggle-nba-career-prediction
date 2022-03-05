@@ -6,8 +6,9 @@ To predict if a rookie player will last at least 5 years in the league based on 
 - y = 0 if career years played < 5
 - y = 1 if career years played >= 5
 
-<h3>Installation process</h3>
+Installation process
 ------------
+
 The main steps required for installing an executing this <b>Kaggle-NBA-Career-Prediction</b> as follows:
 
 1. Setup the local Git repository
