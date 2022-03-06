@@ -24,7 +24,7 @@ The main steps required for installing and executing this <b>Kaggle-NBA-Career-P
 Setup the local Git repository
 ------------
 
-Create a new folder to store this repository, eg: ~/Projects/nba-career-predict:
+Create a new folder to store this repository, eg: ~/Projects:
 
 <pre>
 cd ~
