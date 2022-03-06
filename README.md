@@ -108,7 +108,7 @@ To determine the overall performance of the models, submit the prediction CSV ou
 
 <pre>
     ├── data
-    │   ├── processed      <- Prediction CSV outputs for Kaggle.
+    │   ├── external       <- Prediction CSV outputs for Kaggle.
 </pre>
 
 Project Organization
